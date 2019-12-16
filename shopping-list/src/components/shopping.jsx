@@ -2,15 +2,21 @@ import React, { Component, useImperativeHandle } from "react";
 
 class Shopping extends Component {
   state = {
-    count: 0
+    count: 0,
+    tags: ["tag1", "tag2", "tag3"]
   };
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button className="btn btn-secondary btm-sm">Increment</button>
-      </React.Fragment>
+        <ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      </div>
     );
   }
 
