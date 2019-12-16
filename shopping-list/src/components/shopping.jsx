@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 
 class Shopping extends Component {
-  // state = {  }
+  state = {
+    count: 0
+  };
   render() {
-    React.createElement("div");
     return (
-      <div>
-        <h1>Hello World</h1>
+      <React.Fragment>
+        <span>{this.formatCount()}</span>
         <button>Increment</button>
-      </div>
+      </React.Fragment>
     );
+  }
+
+  formatCount() {
+    const { count } = this.state;
+
+    return count === 0 ? "Zero" : count;
   }
 }
 
