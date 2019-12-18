@@ -17,7 +17,7 @@ class Shopping extends Component {
           onClick={() => {
             this.handleIncrement({ id: 2 });
           }}
-          className="btn btn-secondary btm-sm"
+          className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
