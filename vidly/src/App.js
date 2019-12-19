@@ -4,9 +4,6 @@ import Movies from "./component/movies";
 import "./App.css";
 
 class App extends Component {
-  state = {
-    movies: getMovies()
-  };
   render() {
     return (
       <main className="container">
