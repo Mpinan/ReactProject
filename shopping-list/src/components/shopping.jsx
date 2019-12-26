@@ -2,14 +2,18 @@ import React, { Component } from "react";
 
 class Shopping extends Component {
   state = {
-    count: 0
+    count: this.props.value
   };
 
   handleIncrement = product => {
     this.setState({ count: this.state.count + 1 });
+
+
   };
 
   render() {
+
+    console.log( this.props)
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>

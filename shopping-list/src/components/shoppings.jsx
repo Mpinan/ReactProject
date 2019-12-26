@@ -16,8 +16,9 @@ class Shoppings extends Component {
     return (
       <div>
         {this.state.Shoppings.map(shop => (
-          <Shopping key={shop.id} />
-        ))}
+          <Shopping key={shop.id} value={shop.value} selected={true} 
+          />
+          ))}
       </div>
     );
   }
