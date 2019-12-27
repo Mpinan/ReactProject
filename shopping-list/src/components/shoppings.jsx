@@ -3,26 +3,37 @@ import Shopping from "./shopping";
 
 class Shoppings extends Component {
   state = {
-    Shoppings: [
-      { id: 1, value: 0 },
+    items: [
+      { id: 1, value: 4 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
       { id: 4, value: 0 },
       { id: 5, value: 0 }
     ]
   };
-  handleDelete = shopId => {
-    console.log("Event handle called", shopId);
+
+  handleDelete = itemId => {
+    const items = this.state.items.filter(i => i.id !== itemId);
+    this.setState({ items });
   };
+
+  handleReset = () => {
+    this.state.items.map(i => {
+      i.value = 0;
+      return i;
+    });
+    this.setState({ items });
+  };
+
   render() {
     return (
       <div>
-        {this.state.Shoppings.map(shop => (
+        {this.state.items.map(item => (
           <Shopping
-            key={shop.id}
+            key={item.id}
+            value={item.value}
             onDelete={this.handleDelete}
-            value={shop.value}
-            id={shop.id}
+            item={item}
           />
         ))}
       </div>
