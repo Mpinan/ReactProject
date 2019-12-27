@@ -11,8 +11,8 @@ class Shoppings extends Component {
       { id: 5, value: 0 }
     ]
   };
-  handleDelete = () => {
-    console.log("Event handle called");
+  handleDelete = shopId => {
+    console.log("Event handle called", shopId);
   };
   render() {
     return (
