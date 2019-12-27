@@ -12,13 +12,22 @@ class Shoppings extends Component {
     ]
   };
 
+  handleIncrement = item => {
+    console.log(item);
+    const items = [...this.state.items];
+    const index = items.indexOf(item);
+    items[index] = { ...item };
+    items[index].value++;
+    this.setState({ items });
+  };
+
   handleDelete = itemId => {
     const items = this.state.items.filter(i => i.id !== itemId);
     this.setState({ items });
   };
 
   handleReset = () => {
-    this.state.items.map(i => {
+    const items = this.state.items.map(i => {
       i.value = 0;
       return i;
     });
@@ -28,11 +37,17 @@ class Shoppings extends Component {
   render() {
     return (
       <div>
+        <button
+          onClick={this.handleReset}
+          className="btn btn-primary btn-smalls m-2"
+        >
+          Reset
+        </button>
         {this.state.items.map(item => (
           <Shopping
             key={item.id}
-            value={item.value}
             onDelete={this.handleDelete}
+            onIncrement={this.handleIncrement}
             item={item}
           />
         ))}
