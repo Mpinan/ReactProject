@@ -11,14 +11,20 @@ class Shoppings extends Component {
       { id: 5, value: 0 }
     ]
   };
-
+  handleDelete = () => {
+    console.log("Event handle called");
+  };
   render() {
     return (
       <div>
         {this.state.Shoppings.map(shop => (
-          <Shopping key={shop.id} value={shop.value} selected={true} 
+          <Shopping
+            key={shop.id}
+            onDelete={this.handleDelete}
+            value={shop.value}
+            id={shop.id}
           />
-          ))}
+        ))}
       </div>
     );
   }
