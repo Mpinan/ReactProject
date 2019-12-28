@@ -3,6 +3,7 @@ import Shopping from "./shopping";
 
 class Shoppings extends Component {
   render() {
+    console.log("Shoppings - rendered");
     const { onReset, items, onDelete, onIncrement } = this.props;
     return (
       <div>

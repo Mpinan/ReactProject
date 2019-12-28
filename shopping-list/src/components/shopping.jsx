@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 class Shopping extends Component {
   render() {
+    console.log("Shopping - rendered");
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
