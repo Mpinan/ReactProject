@@ -31,6 +31,7 @@ class Shopping extends Component {
               this.props.onDecrement(this.props.item);
             }}
             className="btn btn-secondary btn-sm m-2"
+            disabled={this.props.item.value === 0 ? "disabled" : ""}
           >
             -
           </button>
