@@ -3,19 +3,17 @@ import Shopping from "./shopping";
 
 class Shoppings extends Component {
   render() {
+    const { onReset, items, onDelete, onIncrement } = this.props;
     return (
       <div>
-        <button
-          onClick={this.props.onReset}
-          className="btn btn-primary btn-smalls m-2"
-        >
+        <button onClick={onReset} className="btn btn-primary btn-smalls m-2">
           Reset
         </button>
-        {this.props.items.map(item => (
+        {items.map(item => (
           <Shopping
             key={item.id}
-            onDelete={this.props.onDelete}
-            onIncrement={this.props.onIncrement}
+            onDelete={onDelete}
+            onIncrement={onIncrement}
             item={item}
           />
         ))}
