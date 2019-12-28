@@ -24,11 +24,18 @@ class App extends Component {
   }
 
   handleIncrement = item => {
-    console.log(item);
     const items = [...this.state.items];
     const index = items.indexOf(item);
     items[index] = { ...item };
     items[index].value++;
+    this.setState({ items });
+  };
+
+  handleDecrement = item => {
+    const items = [...this.state.items];
+    const index = items.indexOf(item);
+    items[index] = { ...item };
+    items[index].value--;
     this.setState({ items });
   };
 
@@ -56,6 +63,7 @@ class App extends Component {
             onReset={this.handleReset}
             onDelete={this.handleDelete}
             onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
           />
         </main>
       </React.Fragment>

@@ -8,7 +8,9 @@ const NavBar = ({ totalItems }) => {
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand" href="#">
         Navbar
-        <span className="badge badge-pill badge-secondary">{totalItems}</span>
+        <span className="badge badge-pill badge-secondary m-2">
+          {totalItems}
+        </span>
       </a>
     </nav>
   );
