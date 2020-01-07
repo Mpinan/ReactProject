@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Like from "../component/common/like";
+import MovesTable from "./moviesTable";
 import Pagination from "../component/common/pagination";
 import List from "../component/common/listGroup";
 import { getMovies } from "../services/fakeMovieService";
@@ -43,6 +43,10 @@ class Movies extends Component {
     this.setState({ selectedGenre: genre, currentPage: 1 });
   };
 
+  handleSort = path => {
+    console.log(path);
+  };
+
   render() {
     const { length: count } = this.state.movies;
     const {
@@ -71,43 +75,12 @@ class Movies extends Component {
         </div>
         <div className="col">
           <p>Showing {filtered.length} movie in the database</p>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Stock</th>
-                <th>Rare</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </thead>
-            {/* </thead> */}
-            <tbody>
-              {movies.map(movie => (
-                <tr key={movie._id}>
-                  <td>{movie.title}</td>
-                  <td>{movie.genre.name}</td>
-                  <td>{movie.numberInStock}</td>
-                  <td>{movie.dailyRentalRate}</td>
-                  <td>
-                    <Like
-                      liked={movie.liked}
-                      onClickLike={() => this.handleLike(movie)}
-                    />
-                  </td>
-                  <td>
-                    <button
-                      onClick={() => this.handleDelete(movie)}
-                      className="btn btn-danger btn-sm"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <MovesTable
+            movies={movies}
+            onLike={this.handleLike}
+            onDelete={this.handleDelete}
+            onSort={this.handleSort}
+          />
           <Pagination
             itemsCount={filtered.length}
             pageSize={pageSize}
