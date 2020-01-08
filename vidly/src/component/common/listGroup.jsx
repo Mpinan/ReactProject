@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const List = props => {
   const {
@@ -12,6 +12,7 @@ const List = props => {
     <ul className="list-group">
       {items.map(item => (
         <li
+          style={{ cursor: "pointer" }}
           onClick={() => onItemSelect(item)}
           key={item[valueProperty]}
           className={
