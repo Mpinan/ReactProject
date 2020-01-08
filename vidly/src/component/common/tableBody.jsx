@@ -10,16 +10,18 @@ class TableBody extends Component {
 
   render() {
     const { data, columns } = this.props;
+
     return (
       <tbody>
         {data.map(
           item => (
             <tr>
-              {
-                columns.map(column => <td>{this.renderCell(item, column)}</td>))
-              }
+              {columns.map(column => (
+                <td>{this.renderCell(item, column)}</td>
+              ))}
             </tr>
           )
+          //   console.log(columns)
         )}
       </tbody>
     );
