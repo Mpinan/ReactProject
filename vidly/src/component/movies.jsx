@@ -6,7 +6,6 @@ import List from "../component/common/listGroup";
 import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate } from "../utilities/paginate";
-import NavBar from "./common/navBar";
 
 class Movies extends Component {
   state = {
@@ -84,7 +83,6 @@ class Movies extends Component {
     return (
       <div className="row">
         <div className="col-3">
-          <NavBar />
           <List
             items={this.state.genres}
             selectedItem={this.state.selectedGenre}

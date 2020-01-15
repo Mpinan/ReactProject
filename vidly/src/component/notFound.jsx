@@ -1,2 +1,7 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+
+const NotFound = () => {
+  return <h1>Not-Found</h1>;
+};
+
+export default NotFound;
