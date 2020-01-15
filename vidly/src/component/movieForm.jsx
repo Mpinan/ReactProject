@@ -1,7 +1,17 @@
 import React from "react";
-// import { Link } from "react-router-dom";
-const MoviesForm = () => {
-  return <h1>MoviesForm</h1>;
+
+const MoviesForm = ({ match, history }) => {
+  return (
+    <div>
+      <h1>MoviesForm {match.params.id}</h1>;
+      <button
+        className="btn btn-primary"
+        onClick={() => history.push("/movies")}
+      >
+        Save
+      </button>
+    </div>
+  );
 };
 
 export default MoviesForm;
