@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 
 class Login extends Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log("Submitted");
+  };
   render() {
     return (
       <div>
         <h1>Login</h1>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input
@@ -27,13 +31,15 @@ class Login extends Component {
             />
           </div>
           <div className="form-check">
-            <input type="checkbox" className="form-check-input" id="" />
-            <label className="form-check-label" htmlFor="exampleCheck1">
-              Check me out
-            </label>
+            <div style={{ padding: 10 }}>
+              <input type="checkbox" className="form-check-input" id="" />
+              <label className="form-check-label" htmlFor="exampleCheck1">
+                Check me out
+              </label>
+            </div>
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Login
           </button>
         </form>
       </div>
