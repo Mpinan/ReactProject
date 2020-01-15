@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 
 class Login extends Component {
+  state = {
+    account: { username: "", password: "" }
+  };
   handleSubmit = e => {
     e.preventDefault();
     console.log("Submitted");
+  };
+
+  handleChange = e => {
+    const account = { ...this.state.account };
+    account.username = e.currentTarget.value;
+    this.setState({ account });
   };
   render() {
     return (
@@ -13,6 +22,8 @@ class Login extends Component {
           <div className="form-group">
             <label htmlFor="username">Username</label>
             <input
+              value={this.state.account.username}
+              onChange={this.handleChange}
               autoFocus
               ref={this.username}
               type="text"
