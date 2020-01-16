@@ -6,7 +6,7 @@ class Login extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log("Submitted");
+    console.log(this.props);
   };
 
   handleChange = ({ currentTarget: input }) => {
