@@ -3,11 +3,20 @@ import Input from "./common/input";
 
 class Login extends Component {
   state = {
-    account: { username: "", password: "" }
+    account: { username: "", password: "" },
+    errors: {}
   };
+
+  validate = () => {
+    return { username: "Username is required" };
+  };
+
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.props);
+
+    const errors = this.validate();
+    this.setState({ errors });
+    if (errors) return;
   };
 
   handleChange = ({ currentTarget: input }) => {
