@@ -22,8 +22,8 @@ class Login extends Component {
     e.preventDefault();
 
     const errors = this.validate();
-    console.log(errors);
-    this.setState({ errors });
+
+    this.setState({ errors: errors || {} });
     if (errors) return;
 
     console.log("submitted");
@@ -36,7 +36,7 @@ class Login extends Component {
     this.setState({ account });
   };
   render() {
-    const { account } = this.state;
+    const { account, errors } = this.state;
     return (
       <div>
         <h1>Login</h1>
@@ -47,6 +47,7 @@ class Login extends Component {
             label="Username"
             onChange={this.handleChange}
             placeholder="Username"
+            error={errors.username}
           />
           <Input
             name="password"
@@ -54,6 +55,7 @@ class Login extends Component {
             label="Password"
             onChange={this.handleChange}
             placeholder="Password"
+            error={errors.password}
           />
 
           <div className="form-check">
