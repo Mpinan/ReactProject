@@ -18,7 +18,7 @@ class Login extends Component {
     return Object.keys(errors).length === 0 ? null : errors;
   };
 
-  handleSubmit = e => {
+  handleLogin = e => {
     e.preventDefault();
 
     const errors = this.validate();
@@ -40,7 +40,7 @@ class Login extends Component {
     return (
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleLogin}>
           <Input
             name="username"
             value={account.username}
