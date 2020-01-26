@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Joi from "joi-browser";
 import Input from "./common/input";
+import Joi from "joi-browser";
 
 class Login extends Component {
   state = {
