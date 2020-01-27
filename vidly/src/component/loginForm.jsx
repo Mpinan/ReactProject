@@ -38,14 +38,8 @@ class Login extends Component {
   };
 
   validateProperty = ({ name, value }) => {
-    if (name === "username") {
-      if (value.trim() === "") return "Username is required.";
-      //...
-    }
-    if (name === "password") {
-      if (value.trim() === "") return "Password is required.";
-      //...
-    }
+    const obj = { [name]: value };
+    Joi.validate(obj, this.schema);
     console.log(name, value);
   };
 
