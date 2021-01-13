@@ -62,7 +62,7 @@ class Login extends Component {
             <div style={{ padding: 10 }}>
               <input type="checkbox" className="form-check-input" id="" />
               <label className="form-check-label" htmlFor="exampleCheck1">
-                Check me out
+                Check me ut
               </label>
             </div>
           </div>
