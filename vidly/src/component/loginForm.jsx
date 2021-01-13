@@ -1,46 +1,34 @@
 import React, { Component } from "react";
 import Input from "./common/input";
+import Joi from "joi-browser";
+import Form from "./common/form";
 
-class Login extends Component {
+class Login extends Form {
   state = {
-    account: { username: "", password: "" },
+    data: { username: "", password: "" },
     errors: {}
   };
 
-  validate = () => {
-    const errors = {};
-
-    const { account } = this.state;
-    if (account.username.trim() === "")
-      errors.username = "Username is required";
-    if (account.password.trim() === "")
-      errors.password = "Password is required";
-    return Object.keys(errors).length === 0 ? null : errors;
+  schema = {
+    username: Joi.string()
+      .required()
+      .label("Username"),
+    password: Joi.string()
+      .required()
+      .label("Password")
   };
 
-  handleLogin = e => {
-    e.preventDefault();
-
-    const errors = this.validate();
-
-    this.setState({ errors: errors || {} });
-    if (errors) return;
-
+  doSubmit = () => {
+    // call serveer
     console.log("submitted");
   };
 
-  handleChange = ({ currentTarget: input }) => {
-    const account = { ...this.state.account };
-    account[input.name] = input.value;
-
-    this.setState({ account });
-  };
   render() {
     const { account, errors } = this.state;
     return (
       <div>
         <h1>Login</h1>
-        <form onSubmit={this.handleLogin}>
+        <form onSubmit={this.handleSubmit}>
           <Input
             name="username"
             value={account.username}
@@ -66,7 +54,11 @@ class Login extends Component {
               </label>
             </div>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button
+            disabled={this.validate()}
+            type="submit"
+            className="btn btn-primary"
+          >
             Login
           </button>
         </form>
